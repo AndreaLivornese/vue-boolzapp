@@ -100,7 +100,11 @@ img{
 #box-list-chat{
     height: calc(100% - 75px);
 
+    overflow-y: auto;
+
     background-color: white;
+
+    user-select: none;
 }
 
 #box-list-chat .profile-pic{

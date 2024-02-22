@@ -58,15 +58,15 @@
                         <div id="box-list-chat" class="col-12">
                             
                             <ul>
-                                <li>
+                                <li v-for="currentChat in contacts">
                                     <div class="chat d-flex">
                                         <div class="profile-pic">
-                                            <img src="./img/avatar_1.jpg" alt="immagine profilo contatto">
+                                            <img :src="currentChat.avatar" alt="immagine profilo contatto">
                                         </div>
 
                                         <div class="contact-body d-flex flex-column flex-grow-1">
                                             <div class="profile-name">
-                                                Michele
+                                               {{currentChat.name}}
                                             </div>
                                             <div class="last-msg">
                                                 Ultimo messaggio
