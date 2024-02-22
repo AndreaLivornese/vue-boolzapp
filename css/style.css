@@ -1,0 +1,107 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* reset */
+
+
+body{
+    font-family: sans-serif;
+    background-color: #d9dbd4;
+}
+
+#sfondo{
+    position:relative;
+}
+
+
+#bg-top{
+    height: 150px;
+    background-color: #009688;
+}
+
+#app{
+    position: absolute;    
+    top:26px;
+    left: 0;
+
+    width: 100vw;
+}
+
+
+.my_container{
+    max-width: 1000px;
+    height: calc(100vh - 26px * 2);
+
+    margin:0 auto;
+
+    /* test */
+    border: solid red 1px;
+}
+
+
+
+#left-side{
+    height: inherit;
+}
+
+
+
+
+/* sezione delle informazioni dell'utente */
+
+#personal-information, #contact-information{
+    height: 75px;
+
+    border: 1px solid #d6d6d6;
+
+    background-color: #eaeaea;
+}
+
+
+
+
+
+
+/* sezione delle chat */
+
+
+#box-list-chat{
+    height: calc(100% - 75px);
+
+    background-color: white;
+}
+
+
+
+
+
+/* right-side */
+
+
+
+#right-side{
+    height: inherit;
+}
+
+
+
+/* sezione delle informazioni del contatto */
+
+
+#chat-interface{
+    height: calc(100% - (75px * 2));
+
+    background-image: url(../img/mine.jpg);
+}
+
+
+#chat-input{
+
+    height: 75px;
+
+    background-color: #f3eeea;
+
+}
