@@ -7,6 +7,7 @@
 /* reset */
 
 
+
 body{
     font-family: sans-serif;
     background-color: #d9dbd4;
@@ -37,13 +38,19 @@ img{
 
 
 .my_container{
-    max-width: 1200px;
+    max-width: 1400px;
     height: calc(100vh - 26px * 2);
 
     margin:0 auto;
 
-    /* test */
-    border: solid red 1px;
+    box-shadow: 5px 5px 20px black;
+}
+
+
+.container-chat{
+    max-width: 800px;
+
+    margin: 0 auto;
 }
 
 
@@ -60,15 +67,11 @@ img{
 #personal-information, #contact-information{
     height: 75px;
 
+    padding: 0 27px 0 12px;
+
     border: 1px solid #d6d6d6;
 
     background-color: #eaeaea;
-}
-
-
-
-#personal-information{
-    padding: 0 27px 0 12px;
 }
 
 
@@ -100,11 +103,21 @@ img{
 #box-list-chat{
     height: calc(100% - 75px);
 
-    overflow-y: auto;
-
     background-color: white;
 
     user-select: none;
+}
+
+
+.filter{
+    background-color: #fafafa;
+}
+
+#list-chat{
+
+    height: calc(100% - 70px);  /*aòtezza totale - l'altezza del blocco del filtro*/
+
+    overflow-y: auto;
 }
 
 #box-list-chat .profile-pic{
@@ -113,7 +126,7 @@ img{
 }
 
 
-#box-list-chat ul{
+ul{
     list-style-type: none;
     padding: 0;
 }
@@ -140,12 +153,37 @@ img{
 /* sezione delle informazioni del contatto */
 
 
+
+
+
+
+/* corpo della chat */
 #chat-interface{
     height: calc(100% - (75px * 2));
 
     background-image: url(../img/mine.jpg);
 }
 
+.msg{
+    display: inline-block;
+    min-width: 200px;
+    padding: 10px;
+
+    border-radius:5px;
+}
+
+.msg-sent{
+    background-color: #d5f9ba;
+}
+.msg-recived{
+    background-color: white;
+}
+
+.
+
+
+
+/* sezione input dei messaggi */
 
 #chat-input{
 
@@ -153,4 +191,14 @@ img{
 
     background-color: #f3eeea;
 
+}
+
+
+#chat-input .emoji, #chat-input .vocal-msg{
+    width: 100px;
+
+    text-align: center;
+    font-size:26px;
+
+    color:#6b7376;
 }
