@@ -103,6 +103,22 @@ img{
     background-color: white;
 }
 
+#box-list-chat .profile-pic{
+    width: 65px;
+    height: 65px;
+}
+
+
+#box-list-chat ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+
+#box-list-chat li{
+    padding:10px 20px;
+}
+
 
 
 
