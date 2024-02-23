@@ -62,11 +62,17 @@
                                     <span class="input-group-text">
                                         <i class="fa-solid fa-magnifying-glass"  style="color: #b6b9bb"></i>
                                     </span>
-                                    <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" >
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        placeholder="Cerca o inizia una nuova chat" 
+                                        v-model="filterText"
+                                        @keyup="filterContact()"
+                                    >
                                 </div>
                             </div>
                             <div id="list-chat">
-                                <ul>
+                                <ul v-if="filterText == ''">
                                     <li v-for="(currentChat, index) in contacts" @click="selectChat(index)">
                                         <div class="chat d-flex">
                                             <div class="profile-pic">
@@ -87,6 +93,34 @@
                                         </div>
                                     </li>
                                 </ul>
+
+                                <ul v-else-if="filterContacts.length != 0">
+
+                                    <li v-for="(filterChat, index) in filterContacts" @click="selectChat(index)">
+                                        <div class="chat d-flex">
+                                            <div class="profile-pic">
+                                                <img :src="filterChat.avatar" alt="immagine profilo contatto">
+                                            </div>
+    
+                                            <div class="contact-body d-flex flex-column flex-grow-1">
+                                                <div class="profile-name">
+                                                   {{filterChat.name}}
+                                                </div>
+                                                <div class="last-msg">
+                                                    Ultimo messaggio
+                                                </div>
+                                            </div>
+                                            <div class="time-last-msg">
+                                                12:00
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+
+                                <div v-else class="text-center mt-4">
+                                    Nessun risultato trovato
+                                </div>
 
                             </div>
 

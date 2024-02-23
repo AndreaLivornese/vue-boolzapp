@@ -172,7 +172,7 @@ const { createApp } = Vue
             }
         ],
 
-
+        // indica l'indice della chat aperta
         contactSelectedIndex: 0,
 
 
@@ -181,8 +181,14 @@ const { createApp } = Vue
             "ok", "Va bene!", "Presidente?!", "Sei uno stirato!", "Non fare tardi."
         ],
 
-
+        // contiene il messaggio che l'utente vuole scrivere
         newMessageText:'',
+
+
+        // contiene il testo per il filtraggio delle chat
+        filterText:'',
+
+        filterContacts:[]
         
 
 
@@ -232,7 +238,24 @@ const { createApp } = Vue
 
             this.contacts[this.contactSelectedIndex].messages.push(newMessage);
 
-        }
+        },
+
+        filterContact(){
+
+            if(this.filterText.trim() != ''){
+
+                for(let i = 0; i < this.contacts.length; i++){
+                    
+                    this.filterContacts = this.contacts.filter((contact)=> contact.name.toLowerCase().includes(this.filterText.toLowerCase()));
+                    
+                }
+                console.log(this.filterText)
+
+                console.log(this.filterContacts);
+            }else{
+                this.filterContacts=[];
+            }
+        },
 
     },
   }).mount('#app')
