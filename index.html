@@ -159,12 +159,27 @@
                             <div class="container-chat py-4 ">
                                 
                                 <ul class="d-flex flex-column gap-3">
-                                    <li v-for="currentMessage in contacts[contactSelectedIndex].messages" :class="currentMessage.status == 'sent' ? 'align-self-end' : ''">
+                                    <li 
+                                        v-for="(currentMessage, index) in contacts[contactSelectedIndex].messages" 
+                                        :class="currentMessage.status == 'sent' ? 'align-self-end' : ''"
+                                        @mouseenter="showIconMsgMenu(index)" @mouseleave="showIconMsgMenu(index)"
+                                    >
                                         <span class="msg" :class="currentMessage.status">
                                             {{currentMessage.message}}
                                             <div class="msg-time">
                                                 {{currentMessage.date}}
                                             </div>
+
+                                            <div v-show="msgIconMenuVisible == true && index == msgIconMenuIndex " 
+                                                class="msg-icon-menu"
+                                                @click="showMsgMenu(index)"
+                                            >
+                                            </div>
+                                            <div class="msg-menu" v-show="msgMenuVisible == true && msgMenuIndex == index">
+                                                <div @click="deleteMessage(index)">Cancella messaggio</div>
+                                                <div>Informazioni messaggio</div>
+                                            </div>
+
                                         </span>
                                     </li>
                                 </ul>

@@ -188,7 +188,18 @@ const { createApp } = Vue
         // contiene il testo per il filtraggio delle chat
         filterText:'',
 
-        filterContacts:[]
+        // conterrà i contatti filtrati
+        filterContacts:[],
+
+        // flag per il menu dei messaggi
+        msgIconMenuVisible:false,
+
+        msgIconMenuIndex:0,
+
+
+        msgMenuVisible : false,
+
+        msgMenuIndex : 0,
         
 
 
@@ -256,6 +267,27 @@ const { createApp } = Vue
                 this.filterContacts=[];
             }
         },
+
+        showIconMsgMenu(index){
+
+            this.msgIconMenuIndex=index;
+            this.msgIconMenuVisible = !this.msgIconMenuVisible;
+
+        },
+
+
+        showMsgMenu(index){
+
+            this.msgMenuIndex = index;
+            this.msgMenuVisible = !this.msgMenuVisible;
+
+        },
+
+        deleteMessage(index){
+
+            this.contacts[this.contactSelectedIndex].messages.splice(index, 1);
+
+        }
 
     },
   }).mount('#app')
