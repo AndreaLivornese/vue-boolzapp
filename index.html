@@ -128,6 +128,9 @@
                                     <li v-for="currentMessage in contacts[contactSelectedIndex].messages" :class="currentMessage.status == 'sent' ? 'align-self-end' : ''">
                                         <span class="msg" :class="currentMessage.status">
                                             {{currentMessage.message}}
+                                            <div class="msg-time">
+                                                {{currentMessage.date}}
+                                            </div>
                                         </span>
                                     </li>
                                 </ul>
@@ -140,7 +143,7 @@
                                 <i class="fa-regular fa-face-smile"></i>
                             </div>
                             <div class="input-msg flex-grow-1 ">
-                                <input type="text" class="form-control h-100 " placeholder="Scrivi un messaggio">
+                                <input v-model="newMessageText" @keyup.enter="sendMessage()" type="text" class="form-control h-100" placeholder="Scrivi un messaggio">
                             </div>
                             <div class="vocal-msg">
                                 <i class="fa-solid fa-microphone"></i>

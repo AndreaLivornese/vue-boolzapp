@@ -165,8 +165,10 @@ ul{
 }
 
 .msg{
+    position: relative;
     display: inline-block;
     min-width: 200px;
+    max-width: 300px;
     padding: 10px;
 
     border-radius:5px;
@@ -179,6 +181,15 @@ ul{
     background-color: white;
 }
 
+
+.msg-time{
+    position: absolute;
+    right: 5px;
+    bottom: 0;
+
+    font-size: 10px;
+    text-align: end;
+}
 
 
 

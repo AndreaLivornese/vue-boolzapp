@@ -174,6 +174,15 @@ const { createApp } = Vue
 
 
         contactSelectedIndex: 0,
+
+
+
+        answers:[
+            "ok", "Va bene!", "Presidente?!", "Sei uno stirato!", "Non fare tardi."
+        ],
+
+
+        newMessageText:'',
         
 
 
@@ -184,6 +193,21 @@ const { createApp } = Vue
 
         selectChat(index){
             this.contactSelectedIndex = index;
+        },
+
+        sendMessage(){
+
+            let currentDate = new Date()
+
+            newMessage={
+                date: ` ${currentDate.getDate()}/${currentDate.getMonth()}/${currentDate.getFullYear()}  ${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`,
+                message: this.newMessageText,
+                status:'sent'
+            };
+
+
+            this.contacts[this.contactSelectedIndex].messages.push(newMessage);
+
         }
 
     },
