@@ -196,15 +196,39 @@ const { createApp } = Vue
         },
 
         sendMessage(){
+            
+
+            if(this.newMessageText.trim() != ''){
+
+                let currentDate = new Date()
+                
+                newMessage={
+                    date: ` ${currentDate.getDate()}/${currentDate.getMonth()}/${currentDate.getFullYear()}  ${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`,
+                    message: this.newMessageText,
+                    status:'sent',
+                };
+                
+                
+                this.contacts[this.contactSelectedIndex].messages.push(newMessage);
+                
+                this.newMessageText='';
+                
+                setTimeout(this.receivedMessage, 1000);
+                
+            }
+            
+            
+        },
+        
+        receivedMessage(){
 
             let currentDate = new Date()
-
+            
             newMessage={
                 date: ` ${currentDate.getDate()}/${currentDate.getMonth()}/${currentDate.getFullYear()}  ${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`,
-                message: this.newMessageText,
-                status:'sent'
+                message: this.answers[ Math.floor(Math.random() * this.answers.length) ],
+                status:'received',
             };
-
 
             this.contacts[this.contactSelectedIndex].messages.push(newMessage);
 

@@ -162,6 +162,8 @@ ul{
     height: calc(100% - (75px * 2));
 
     background-image: url(../img/mine.jpg);
+
+    overflow-y: auto;
 }
 
 .msg{
