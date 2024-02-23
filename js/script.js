@@ -217,6 +217,8 @@ const { createApp } = Vue
 
             if(this.newMessageText.trim() != ''){
 
+                let index= this.contactSelectedIndex;
+
                 let currentDate = new Date()
                 
                 newMessage={
@@ -230,14 +232,14 @@ const { createApp } = Vue
                 
                 this.newMessageText='';
                 
-                setTimeout(this.receivedMessage, 1000);
+                setTimeout(()=>{this.receivedMessage(index);}, 1000);
                 
             }
             
             
         },
         
-        receivedMessage(){
+        receivedMessage(index){
 
             let currentDate = new Date()
             
@@ -247,7 +249,7 @@ const { createApp } = Vue
                 status:'received',
             };
 
-            this.contacts[this.contactSelectedIndex].messages.push(newMessage);
+            this.contacts[index].messages.push(newMessage);
 
         },
 
