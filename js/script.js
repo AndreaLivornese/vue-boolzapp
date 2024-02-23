@@ -6,6 +6,7 @@ const { createApp } = Vue
     data() {
       return {
 
+        
 
         contacts: [
             {
@@ -169,10 +170,21 @@ const { createApp } = Vue
                     }
                 ],
             }
-        ]
+        ],
+
+
+        contactSelectedIndex: 0,
         
 
 
       }
-    }
+    },
+
+    methods: {
+
+        selectChat(index){
+            this.contactSelectedIndex = index;
+        }
+
+    },
   }).mount('#app')

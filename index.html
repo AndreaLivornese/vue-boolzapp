@@ -67,7 +67,7 @@
                             </div>
                             <div id="list-chat">
                                 <ul>
-                                    <li v-for="currentChat in contacts">
+                                    <li v-for="(currentChat, index) in contacts" @click="selectChat(index)">
                                         <div class="chat d-flex">
                                             <div class="profile-pic">
                                                 <img :src="currentChat.avatar" alt="immagine profilo contatto">
@@ -100,11 +100,11 @@
                            
                             <div class="d-flex align-items-center " >
                                 <div class="profile-pic">
-                                    <img src="./img/avatar_io.jpg" alt="">
+                                    <img :src="contacts[contactSelectedIndex].avatar" alt="">
                                 </div>
 
                                 <div class="profile-name">
-                                    Andrea Livornese
+                                    {{contacts[contactSelectedIndex].name}}
                                 </div>
                             </div>
 
@@ -125,19 +125,9 @@
                             <div class="container-chat py-4 ">
                                 
                                 <ul class="d-flex flex-column gap-3">
-                                    <li class="align-self-end ">
-                                        <span class="msg msg-sent">
-                                            Hai portato fuori il cane
-                                        </span>
-                                    </li>
-                                    <li class="align-self-end ">
-                                        <span class="msg msg-sent">
-                                            Hai portato fuori il cane
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span class="msg msg-recived">
-                                            Hai portato fuori il cane
+                                    <li v-for="currentMessage in contacts[contactSelectedIndex].messages" :class="currentMessage.status == 'sent' ? 'align-self-end' : ''">
+                                        <span class="msg" :class="currentMessage.status">
+                                            {{currentMessage.message}}
                                         </span>
                                     </li>
                                 </ul>

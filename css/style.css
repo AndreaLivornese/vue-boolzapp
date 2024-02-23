@@ -14,7 +14,7 @@ body{
 }
 
 img{
-    width: 100%;
+    height: 100%;
 }
 
 
@@ -172,14 +172,14 @@ ul{
     border-radius:5px;
 }
 
-.msg-sent{
+.msg.sent{
     background-color: #d5f9ba;
 }
-.msg-recived{
+.msg.received{
     background-color: white;
 }
 
-.
+
 
 
 
