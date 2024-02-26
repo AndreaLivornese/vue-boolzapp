@@ -117,6 +117,43 @@ img{
     user-select: none;
 }
 
+.active-notification{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    
+    height: 85px;
+
+    padding:15px 20px;
+    
+    background-color: #8edafc;
+}
+
+.noti-pic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+
+    color:#8edafc;
+}
+
+.noti-text{
+    font-size:14px;
+}
+
+.noti-disable{
+    font-size:14px;
+    color:#6e8fa2;
+    text-decoration: underline;
+
+    cursor:pointer;
+}
 
 .filter{
     background-color: #fafafa;
@@ -124,12 +161,12 @@ img{
 
 #list-chat{
 
-    height: calc(100% - 70px);  /*aòtezza totale - l'altezza del blocco del filtro*/
+    height: calc(100% - 70px - 85px);  /*aòtezza totale - l'altezza del blocco del filtro - l'altezza della notifica*/
 
     overflow-y: auto;
 }
 
-#box-list-chat .profile-pic{
+#box-list-chat .profile-pic, .noti-pic{
     width: 65px;
     height: 65px;
 }
