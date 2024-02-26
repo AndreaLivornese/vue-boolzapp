@@ -117,7 +117,7 @@
 
                                 <ul v-else-if="filterContacts.length != 0">
 
-                                    <li v-for="(filterChat, index) in filterContacts" @click="selectChat(index)">
+                                    <li v-for="(filterChat, index) in filterContacts" @click="selectFilterChat(index)">
                                         <div class="chat d-flex">
                                             <div class="profile-pic">
                                                 <img :src="filterChat.avatar" alt="immagine profilo contatto">
@@ -153,7 +153,7 @@
                        
                         <div id="contact-information" class="col-12 d-flex justify-content-between align-items-center ">
                            
-                            <div class="d-flex align-items-center gap-3" >
+                            <div v-if="filterContacts.length == 0" class="d-flex align-items-center gap-3" >
                                 <div class="profile-pic">
                                     <img :src="contacts[contactSelectedIndex].avatar" alt="">
                                 </div>
@@ -165,6 +165,23 @@
 
                                     <div class="stato">
                                         {{contacts[contactSelectedIndex].state}}
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div v-else class="d-flex align-items-center gap-3" >
+                                <div class="profile-pic">
+                                    <img :src="filterContacts[filterContactSelectedIndex].avatar" alt="">
+                                </div>
+
+                                <div class="">
+                                    <div class="profile-name">
+                                        {{filterContacts[filterContactSelectedIndex].name}}
+                                    </div>
+
+                                    <div class="stato">
+                                        {{filterContacts[filterContactSelectedIndex].state}}
                                     </div>
 
                                 </div>
@@ -192,9 +209,36 @@
                         <div id="chat-interface" class="col-12">
                             <div class="container-chat py-4 ">
                                 
-                                <ul class="d-flex flex-column gap-3">
+                                <ul v-if="filterContacts.length == 0" class="d-flex flex-column gap-3">
                                     <li
                                         v-for="(currentMessage, index) in contacts[contactSelectedIndex].messages" 
+                                        :class="currentMessage.status == 'sent' ? 'align-self-end' : ''"
+                                    >
+                                        <span class="msg"
+                                            :class="currentMessage.status"
+                                        >
+                                            {{currentMessage.message}}
+                                            <div class="msg-time">
+                                                {{currentMessage.date}}
+                                            </div>
+
+                                            <div 
+                                                class="msg-icon-menu"
+                                                @click="showMsgMenu(index)"
+                                            >
+                                            </div>
+                                            <div class="msg-menu" v-show="currentMessage.msgMenuVisible == true">
+                                                <div @click="deleteMessage(index)">Cancella messaggio</div>
+                                                <div>Informazioni messaggio</div>
+                                            </div>
+
+                                        </span>
+                                    </li>
+                                </ul>
+
+                                <ul v-else class="d-flex flex-column gap-3">
+                                    <li
+                                        v-for="(currentMessage, index) in filterContacts[filterContactSelectedIndex].messages" 
                                         :class="currentMessage.status == 'sent' ? 'align-self-end' : ''"
                                     >
                                         <span class="msg"

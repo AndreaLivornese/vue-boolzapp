@@ -295,6 +295,7 @@ const { createApp } = Vue
         // conterrà i contatti filtrati
         filterContacts:[],
 
+        filterContactSelectedIndex:0,
 
         chatMenuVisible : false,
 
@@ -311,6 +312,11 @@ const { createApp } = Vue
         selectChat(index){
             this.contactSelectedIndex = index;
             
+        },
+
+        selectFilterChat(index){
+            console.log(index)
+            this.filterContactSelectedIndex = index;
         },
 
         sendMessage(){
