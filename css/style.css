@@ -188,6 +188,7 @@ ul{
     border-radius:5px;
 }
 
+
 .msg.sent{
     padding-right:30px;
     background-color: #d5f9ba;
@@ -201,12 +202,17 @@ ul{
     position: absolute;
     right: 5px;
     bottom: 0;
-
+    
     font-size: 10px;
     text-align: end;
 }
 
+.msg:hover .msg-icon-menu{
+    display: block;
+}
+
 .msg-icon-menu{
+    display: none;
     position: absolute;
     top:5px;
     right:10px;

@@ -166,15 +166,17 @@
                                     <li
                                         v-for="(currentMessage, index) in contacts[contactSelectedIndex].messages" 
                                         :class="currentMessage.status == 'sent' ? 'align-self-end' : ''"
-                                        @mouseenter="showIconMsgMenu(index)" @mouseleave="showIconMsgMenu(index)"
                                     >
-                                        <span class="msg" :class="currentMessage.status">
+                                        <span class="msg"
+                                            :class="currentMessage.status"
+                                            @mouseenter="showIconMsgMenu(index)" @mouseleave="showIconMsgMenu(index)"
+                                        >
                                             {{currentMessage.message}}
                                             <div class="msg-time">
                                                 {{currentMessage.date}}
                                             </div>
 
-                                            <div v-show="currentMessage.msgIconMenuVisible == true" 
+                                            <div 
                                                 class="msg-icon-menu"
                                                 @click="showMsgMenu(index)"
                                             >
