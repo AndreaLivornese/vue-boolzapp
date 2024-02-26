@@ -18,6 +18,7 @@ img{
 }
 
 
+
 #sfondo{
     position:relative;
 }
@@ -144,7 +145,7 @@ ul{
     cursor: pointer;
 }
 
-#box-list-chat li:hover{
+#box-list-chat li:hover, .active{
     background-color: #e9ebeb;
 }
 
@@ -194,6 +195,11 @@ ul{
     background-image: url(../img/mine.jpg);
 
     overflow-y: auto;
+}
+
+.stato{
+    font-size: 14px;
+    color: #979d9e;
 }
 
 .msg{

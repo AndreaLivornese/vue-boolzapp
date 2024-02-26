@@ -13,6 +13,7 @@ const { createApp } = Vue
                 name: 'Michele',
                 avatar: './img/avatar_1.jpg',
                 visible: true,
+                state:'10/01/2020 16:15:22',
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -41,6 +42,7 @@ const { createApp } = Vue
                 name: 'Fabio',
                 avatar: './img/avatar_2.jpg',
                 visible: true,
+                state:'20/03/2020 16:30:55',
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -69,6 +71,7 @@ const { createApp } = Vue
                 name: 'Samuele',
                 avatar: './img/avatar_3.jpg',
                 visible: true,
+                state:'28/03/2020 16:15:22',
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -97,6 +100,7 @@ const { createApp } = Vue
                 name: 'Alessandro B.',
                 avatar: './img/avatar_4.jpg',
                 visible: true,
+                state:'10/01/2020 15:50:00',
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -118,6 +122,7 @@ const { createApp } = Vue
                 name: 'Alessandro L.',
                 avatar: './img/avatar_5.jpg',
                 visible: true,
+                state:'10/01/2020 15:50:00',
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -139,6 +144,7 @@ const { createApp } = Vue
                 name: 'Claudia',
                 avatar: './img/avatar_6.jpg',
                 visible: true,
+                state:'10/01/2020 15:50:00',
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -168,6 +174,7 @@ const { createApp } = Vue
                 name: 'Federico',
                 avatar: './img/avatar_7.jpg',
                 visible: true,
+                state:'10/01/2020 15:50:00',
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -189,6 +196,7 @@ const { createApp } = Vue
                 name: 'Davide',
                 avatar: './img/avatar_8.jpg',
                 visible: true,
+                state:'10/01/2020 15:51:00',
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -261,14 +269,29 @@ const { createApp } = Vue
                     date: ` ${currentDate.getDate()}/${currentDate.getMonth()}/${currentDate.getFullYear()}  ${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`,
                     message: this.newMessageText,
                     status:'sent',
+                    msgMenuVisible : false,
                 };
                 
                 
                 this.contacts[this.contactSelectedIndex].messages.push(newMessage);
                 
                 this.newMessageText='';
-                
-                setTimeout(()=>{this.receivedMessage(index);}, 1000);
+
+
+                // i timeout permettono il cambiamento dello stato del nostro contatto
+                setTimeout(()=>{
+                    this.contacts[this.contactSelectedIndex].state = 'online';
+                    setTimeout(()=>{this.contacts[this.contactSelectedIndex].state = 'Sta scrivendo...';}, 300);
+                }, 300);
+
+
+                setTimeout(()=>{
+                    this.receivedMessage(index);
+                    this.contacts[this.contactSelectedIndex].state = `Online`;
+                    setTimeout(()=>{
+                        this.contacts[this.contactSelectedIndex].state = `Ultimo accesso ${newMessage.date}`;
+                    }, 1000);
+                }, 1000);
                 
             }
             
@@ -318,7 +341,6 @@ const { createApp } = Vue
             
             console.log(this.contacts[this.contactSelectedIndex].messages);
 
-            this.contacts[this.contactSelectedIndex].messages[index].msgIconMenuVisible = false;
             this.contacts[this.contactSelectedIndex].messages[index].msgMenuVisible = false;
 
             this.contacts[this.contactSelectedIndex].messages.splice(index, 1);
