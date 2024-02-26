@@ -50,7 +50,13 @@
                             <div class="profile-icons d-flex gap-3  ">
                                 <i class="fa-solid fa-circle-notch"></i>
                                 <i class="fa-solid fa-message"></i>
-                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                <i class="fa-solid fa-ellipsis-vertical" @click="showMainMenu()">
+                                    <div class="chat-menu" v-show="mainMenuVisible == true">
+                                        <div @click="newChat()">
+                                            Inizia nuova chat
+                                        </div>
+                                    </div>
+                                </i>
 
                             </div>
 
@@ -87,7 +93,6 @@
                                 <ul v-if="filterText == ''">
                                     <li v-for="(currentChat, index) in contacts" 
                                         @click="selectChat(index)"
-                                        v-show="currentChat.messages.length > 0"
                                         :class="index == contactSelectedIndex ? 'active' : ''"
                                     >
                                         <div class="chat">

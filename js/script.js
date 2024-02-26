@@ -243,6 +243,8 @@ const { createApp } = Vue
 
 
         chatMenuVisible : false,
+
+        mainMenuVisible: false,
         
         
 
@@ -357,7 +359,23 @@ const { createApp } = Vue
 
         showChatMenu(){
             this.chatMenuVisible = !this.chatMenuVisible
-        }
+        },
+
+        newChat(){
+            newContact = {
+                name: prompt("inserisci il nome"),
+                avatar: prompt("inserisci il npercorso di una immagine quadrata"),
+                visible: true,
+                state:'10/01/2020 15:51:00',
+                messages: [],
+            }
+
+            this.contacts.unshift(newContact);
+        },
+
+        showMainMenu(){
+            this.mainMenuVisible = !this.mainMenuVisible
+        },
 
     },
   }).mount('#app')
