@@ -24,6 +24,7 @@
     <div id="sfondo">
 
         <div id="bg-top"></div>
+        <div id="bg-bot"></div>
 
         <div id="app">
     
@@ -83,7 +84,7 @@
                                                 <div class="profile-name">
                                                    {{currentChat.name}}
                                                 </div>
-                                                <div class="last-msg">
+                                                <div v-if="currentChat.messages.length > 0" class="last-msg">
                                                    {{currentChat.messages[currentChat.messages.length - 1].message}}
                                                 </div>
                                             </div>
@@ -106,7 +107,7 @@
                                                 <div class="profile-name">
                                                    {{filterChat.name}}
                                                 </div>
-                                                <div class="last-msg">
+                                                <div v-if="filterChat.messages.length > 0" class="last-msg">
                                                     {{filterChat.messages[currentChat.messages.length - 1].message}}
                                                 </div>
                                             </div>
@@ -159,7 +160,7 @@
                             <div class="container-chat py-4 ">
                                 
                                 <ul class="d-flex flex-column gap-3">
-                                    <li 
+                                    <li
                                         v-for="(currentMessage, index) in contacts[contactSelectedIndex].messages" 
                                         :class="currentMessage.status == 'sent' ? 'align-self-end' : ''"
                                         @mouseenter="showIconMsgMenu(index)" @mouseleave="showIconMsgMenu(index)"

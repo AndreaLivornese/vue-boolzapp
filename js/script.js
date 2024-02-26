@@ -176,7 +176,6 @@ const { createApp } = Vue
         contactSelectedIndex: 0,
 
 
-
         answers:[
             "ok", "Va bene!", "Presidente?!", "Sei uno stirato!", "Non fare tardi."
         ],
@@ -210,6 +209,9 @@ const { createApp } = Vue
 
         selectChat(index){
             this.contactSelectedIndex = index;
+            
+            console.log(msgChatSelected)
+
         },
 
         sendMessage(){
@@ -286,10 +288,17 @@ const { createApp } = Vue
         },
 
         deleteMessage(index){
+            console.log(index)
+
+            console.log(this.contacts[this.contactSelectedIndex].messages)
 
             this.contacts[this.contactSelectedIndex].messages.splice(index, 1);
+            this.msgMenuVisible = false;
+            this.msgIconMenuVisible = false;
 
-        }
+            console.log(this.msgIconMenuVisible, this.msgMenuVisible)
+
+        },
 
     },
   }).mount('#app')
