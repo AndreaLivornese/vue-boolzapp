@@ -13,6 +13,7 @@ body{
 }
 
 img{
+    width: 100%;
     height: 100%;
 }
 
@@ -138,7 +139,6 @@ ul{
     padding: 0;
 }
 
-
 #box-list-chat li{
     padding:10px 20px;
     cursor: pointer;
@@ -147,6 +147,24 @@ ul{
 #box-list-chat li:hover{
     background-color: #e9ebeb;
 }
+
+#box-list-chat .chat{
+    display: flex;
+    justify-content: space-between;
+
+    gap:20px;
+}
+
+#box-list-chat .profile-name{
+    font-size: 16px;
+}
+
+#box-list-chat .last-msg{
+    font-size: 14px;
+    color: #c0c5cd;
+}
+
+
 
 
 
