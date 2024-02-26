@@ -183,6 +183,40 @@ ul{
 
 /* sezione delle informazioni del contatto */
 
+.fa-ellipsis-vertical{
+    position: relative;
+    cursor: pointer;
+}
+
+.chat-menu{
+    position:absolute;
+    right:0;
+    bottom:-32px;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 150px;
+
+    border: 1px solid darkgray;
+
+    background-color: white;
+
+    text-align: end;
+
+    font-size: 10px;
+}
+
+.chat-menu >*{
+    padding: 10px 14px;
+
+    cursor:pointer;
+
+    user-select: none;
+}
+
 
 
 

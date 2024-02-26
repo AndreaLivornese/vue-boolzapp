@@ -241,6 +241,8 @@ const { createApp } = Vue
         // conterrà i contatti filtrati
         filterContacts:[],
 
+
+        chatMenuVisible : false,
         
         
 
@@ -347,6 +349,15 @@ const { createApp } = Vue
 
 
         },
+
+        deleteChat(){
+            this.contacts[this.contactSelectedIndex].messages.splice(0, this.contacts[this.contactSelectedIndex].messages.length);
+        },
+
+
+        showChatMenu(){
+            this.chatMenuVisible = !this.chatMenuVisible
+        }
 
     },
   }).mount('#app')
