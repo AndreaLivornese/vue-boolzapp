@@ -74,7 +74,10 @@
                             </div>
                             <div id="list-chat">
                                 <ul v-if="filterText == ''">
-                                    <li v-for="(currentChat, index) in contacts" @click="selectChat(index)">
+                                    <li v-for="(currentChat, index) in contacts" 
+                                        @click="selectChat(index)"
+                                        v-show="currentChat.messages.length > 0"
+                                    >
                                         <div class="chat d-flex">
                                             <div class="profile-pic">
                                                 <img :src="currentChat.avatar" alt="immagine profilo contatto">
@@ -108,7 +111,7 @@
                                                    {{filterChat.name}}
                                                 </div>
                                                 <div v-if="filterChat.messages.length > 0" class="last-msg">
-                                                    {{filterChat.messages[currentChat.messages.length - 1].message}}
+                                                    {{filterChat.messages[filterChat.messages.length - 1].message}}
                                                 </div>
                                             </div>
                                             <div class="time-last-msg">
@@ -171,12 +174,12 @@
                                                 {{currentMessage.date}}
                                             </div>
 
-                                            <div v-show="msgIconMenuVisible == true && index == msgIconMenuIndex " 
+                                            <div v-show="currentMessage.msgIconMenuVisible == true" 
                                                 class="msg-icon-menu"
                                                 @click="showMsgMenu(index)"
                                             >
                                             </div>
-                                            <div class="msg-menu" v-show="msgMenuVisible == true && msgMenuIndex == index">
+                                            <div class="msg-menu" v-show="currentMessage.msgMenuVisible == true">
                                                 <div @click="deleteMessage(index)">Cancella messaggio</div>
                                                 <div>Informazioni messaggio</div>
                                             </div>
