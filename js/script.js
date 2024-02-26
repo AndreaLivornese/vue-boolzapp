@@ -227,8 +227,62 @@ const { createApp } = Vue
         contactSelectedIndex: 0,
 
 
-        answers:[
-            "ok", "Va bene!", "Presidente?!", "Sei uno stirato!", "Non fare tardi."
+        answers : [
+            "ok", 
+            "Va bene!", 
+            "Presidente?!", 
+            "Sei uno stirato!", 
+            "Non fare tardi.",
+            "Sì, certo!",
+            "Nessun problema!",
+            "Fammi sapere se hai bisogno di altro.",
+            "Come posso aiutarti?",
+            "Sto elaborando la tua richiesta...",
+            "Per favore, attendi un momento.",
+            "Ecco i risultati:",
+            "Non ho trovato nulla.",
+            "Prova a riformulare la tua domanda.",
+            "C'è qualcos'altro che posso fare per te?",
+            "Spiacenti, non capisco cosa intendi.",
+            "Per favore, fornisci più informazioni.",
+            "Non sono sicuro di come rispondere.",
+            "Posso provare a cercare una risposta per te.",
+            "Vuoi che cerchi su internet?",
+            "Ecco alcuni link che potrebbero esserti utili:",
+            "Hai bisogno di aiuto per qualcos'altro?",
+            "Grazie per avermi usato!",
+            "Spero che tu abbia trovato quello che cercavi.",
+            "A presto!",
+            "Buongiorno!",
+            "Buonasera!",
+            "Buonanotte!",
+            "Come stai?",
+            "Tutto bene?",
+            "Cosa c'è di nuovo?",
+            "Cosa fai oggi?",
+            "Hai qualche piano per il weekend?",
+            "Qual è il tuo film preferito?",
+            "Qual è il tuo libro preferito?",
+            "Qual è la tua canzone preferita?",
+            "Qual è il tuo hobby preferito?",
+            "Cosa ti piace fare nel tuo tempo libero?",
+            "Qual è il tuo viaggio dei sogni?",
+            "Se potessi avere un superpotere, quale sarebbe?",
+            "Qual è la tua più grande paura?",
+            "Qual è il tuo più grande sogno?",
+            "Cosa ti rende felice?",
+            "Cosa ti rende triste?",
+            "Cosa ti motiva?",
+            "Qual è il tuo più grande successo?",
+            "Qual è il tuo più grande fallimento?",
+            "Cosa hai imparato dalla tua esperienza?",
+            "Cosa consiglieresti a un giovane che inizia la sua carriera?",
+            "Qual è la tua citazione preferita?",
+            "Qual è il tuo motto?",
+            "Cosa significa per te la felicità?",
+            "Cosa significa per te il successo?",
+            "Cosa significa per te la vita?",
+          
         ],
 
         // contiene il messaggio che l'utente vuole scrivere
@@ -257,7 +311,6 @@ const { createApp } = Vue
         selectChat(index){
             this.contactSelectedIndex = index;
             
-
         },
 
         sendMessage(){
@@ -331,6 +384,13 @@ const { createApp } = Vue
             }else{
                 this.filterContacts=[];
             }
+        },
+
+
+        filterContactSelect(){
+
+
+
         },
 
 
