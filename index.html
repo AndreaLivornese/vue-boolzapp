@@ -169,7 +169,6 @@
                                     >
                                         <span class="msg"
                                             :class="currentMessage.status"
-                                            @mouseenter="showIconMsgMenu(index)" @mouseleave="showIconMsgMenu(index)"
                                         >
                                             {{currentMessage.message}}
                                             <div class="msg-time">
@@ -201,7 +200,11 @@
                                 <input v-model="newMessageText" @keyup.enter="sendMessage()" type="text" class="form-control h-100" placeholder="Scrivi un messaggio">
                             </div>
                             <div class="vocal-msg">
-                                <i class="fa-solid fa-microphone"></i>
+                                <i v-show="newMessageText == ''" class="fa-solid fa-microphone"></i>
+                                <i v-show="newMessageText != ''"  
+                                    class="fa-solid fa-paper-plane"
+                                    @click="sendMessage()"
+                                ></i>
                             </div>
                         </div>
 

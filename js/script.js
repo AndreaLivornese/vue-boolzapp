@@ -245,7 +245,6 @@ const { createApp } = Vue
         selectChat(index){
             this.contactSelectedIndex = index;
             
-            console.log(msgChatSelected)
 
         },
 
